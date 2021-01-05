@@ -4,7 +4,7 @@ import { isEmpty } from '@ember/utils';
 import layout from 'ember-light-table/templates/components/columns/base';
 import DraggableColumnMixin from 'ember-light-table/mixins/draggable-column';
 import cssStyleify from 'ember-light-table/utils/css-styleify';
-
+import { set } from '@ember/object'
 /**
  * @module Light Table
  * @submodule Column Types
@@ -115,7 +115,8 @@ const Column = Component.extend(DraggableColumnMixin, {
     },
 
     set(key, value) {
-      return this._rowspan = value;
+      set(this, '_rowspan', value)
+      return this._rowspan;
     }
   })
 });
